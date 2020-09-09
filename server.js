@@ -11,6 +11,12 @@ connectDB()
 //sending api running to the browser
 app.get("/", (req, res) => res.send("API Running"));
 
+//Define all Routes
+app.use("/api/users", require("./routes/api/users"))
+app.use("/api/auth", require("./routes/api/auth"))
+app.use("/api/profiles", require("./routes/api/profiles"))
+app.use("/api/posts", require("./routes/api/posts"))
+
 //creatting the correct port number
 const PORT = process.env.PORT || 5000;
 
