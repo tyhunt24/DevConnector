@@ -1,8 +1,12 @@
 //require the express package
 const express = require("express")
+const connectDB = require("./config/db")
 
 //be able to use the express package
 const app = express()
+
+//connect to our database
+connectDB()
 
 //sending api running to the browser
 app.get("/", (req, res) => res.send("API Running"));
