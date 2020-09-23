@@ -2,6 +2,7 @@ import axios from "axios"
 import {REGISTER_SUCCESS, REGISTER_FAIL} from "./types"
 import {setAlert} from "./alert"
 
+
 // register a user
 export const register = ({name, email, password}) => async dispatch => {
     const config = {
@@ -34,3 +35,5 @@ export const register = ({name, email, password}) => async dispatch => {
         })
     }
 }
+
+
