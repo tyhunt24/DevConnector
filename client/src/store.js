@@ -3,6 +3,7 @@ import {composeWithDevTools } from "redux-devtools-extension"
 import thunk from "redux-thunk"
 import rootReducer from "./reducers"
 
+//all of our initial state is in the reducers
 const initialState = {};
 
 const middleWare = [thunk]
