@@ -77,7 +77,7 @@ async (req, res) => {
         jwt.sign(payload, config.get("jwtSecret"), {expiresIn: 360000},
         (err, token) => {
             if(err) throw err;
-            res.json(token)
+            res.json({token}) // this has to be like this so we know to put it in localstorage
         })
 
     } catch (error) {
