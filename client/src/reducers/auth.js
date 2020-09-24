@@ -23,10 +23,10 @@ export default function(state = initialState, action) {
         case REGISTER_FAIL: {
             localStorage.removeItem("token") // takes token out of localStorage
             return {
-                ...state,
-                token: null,
-                isAuthenticated: false,
-                loading: false
+                ...state, //brings everything into the state
+                token: null, //the token becomes null 
+                isAuthenticated: false, //authentication becomes false
+                loading: false // put loading at false because it is not searching anymore
             }
         }
         default: 
