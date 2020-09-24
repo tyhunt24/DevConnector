@@ -3,6 +3,7 @@ import {connect} from "react-redux"
 import {Link} from "react-router-dom"
 import {setAlert} from "../../actions/alert"
 import {register} from "../../actions/auth"
+
 import PropTypes from 'prop-types'
 
 
@@ -27,7 +28,7 @@ const Register = ({setAlert, register}) => {
         if(password !== password2) {
             setAlert("Passwords do not match", 'danger')
         } else {
-            register({name, email, password});
+          register({name, email, password})
         }
     }
     
