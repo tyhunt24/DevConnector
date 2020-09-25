@@ -9,8 +9,18 @@ import Alert from "./components/layout/Alert"
 //redux
 import {Provider} from "react-redux"
 import store from "./store"
+import {loadUser} from "./actions/auth"
+import setAuthToken from "./utils/setAuthToken"
+
+//sets the token to always be running on the backend
+if(localStorage.token) {
+  setAuthToken(localStorage.token)
+}
 
 const App = () => {
+  useEffect(() => {
+    store.dispatch(loadUser()); //? not really sure what this is doing
+  }, []) 
   return (
     <Provider store={store}>
     <Router>
