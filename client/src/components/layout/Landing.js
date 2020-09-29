@@ -4,9 +4,9 @@ import {connect} from "react-redux"
 import PropTypes from 'prop-types'
 
 const Landing = ({isAuthenticated}) => {
-  // if(isAuthenticated) {
-  //   <Redirect to="/dashboard" />
-  // }
+  if(isAuthenticated) {
+    return <Redirect to="/dashboard" />
+  }
 
     return (
         <section className="landing">
@@ -27,12 +27,12 @@ const Landing = ({isAuthenticated}) => {
     )
 }
 
-// Landing.propTypes = () => ({
-//   isAuthenticated: PropTypes.object.isRequired
-// })
+Landing.propTypes = () => ({
+  isAuthenticated: PropTypes.bool
+})
 
-// const mapStateToProps = state => ({
-//   isAuthenticated: state.auth.isAuthenticated
-// })
+const mapStateToProps = state => ({
+  isAuthenticated: state.auth.isAuthenticated
+})
 
-export default Landing
+export default connect(mapStateToProps)(Landing)
