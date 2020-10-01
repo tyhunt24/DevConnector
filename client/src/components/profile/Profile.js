@@ -21,7 +21,7 @@ const Profile = ({ getProfileById, profile: {loading, profile}, auth, match }) =
            {profile === null || loading ? <Spinner /> : <Fragment>
                <Link to="/developers" className="btn btn-light">Back to Profiles</Link>
                {auth.isAuthenticated && auth.loading === false && auth.user._id === profile.user._id
-               && <Link className="btn btn-primary" to="edit-profile">Edit Profile</Link>}
+               && <Link className="btn btn-primary" to="/edit-profile">Edit Profile</Link>}
                <div className="profile-grid my-1">
                  <ProfileTop profile={profile} /> 
                  <ProfileAbout profile={profile} /> 
