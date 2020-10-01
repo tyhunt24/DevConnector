@@ -1,6 +1,7 @@
 /* Global Styles */
 :root {
   --primary-color: #dc3545;
+  --secondary-color: #38a1f3;
   --dark-color: #343a40;
   --light-color: #f4f4f4;
   --danger-color: #dc3545;
@@ -178,6 +179,10 @@ img {
 .alert-dark {
   background: var(--dark-color);
   color: #fff;
+}
+
+.btn-secondary {
+  background: var(--secondary-color);
 }
 
 .btn-danger,

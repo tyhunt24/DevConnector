@@ -166,7 +166,7 @@ export const addEducation = (formData, history) => async dispatch => {
 //get repos
 export const getRepos = username => async dispatch => {
     try {
-        const res = await axios.get(`/profile/github/${username}`);
+        const res = await axios.get(`/profiles/github/${username}`);
     
         dispatch({
           type: GET_REPOS,
