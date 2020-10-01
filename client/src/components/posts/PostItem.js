@@ -5,7 +5,7 @@ import Moment from "react-moment"
 import {connect} from "react-redux"
 import {addLike} from "../../actions/post"
 
-const PostItem = ({addLike, auth, post: {_id, text, name, avatar, user, likes, comments, date}}) => {
+const PostItem = ({addLike, auth, post: {_id, text, name, avatar, user, likes, comments, date}, showActions}) => {
     return (
         <div className="post bg-dark p-1 my-1">
             <div>
@@ -19,12 +19,13 @@ const PostItem = ({addLike, auth, post: {_id, text, name, avatar, user, likes, c
                 Posted on <Moment format="YYYY/MM/DD">{date}</Moment>
             </p>
 
+            {showActions && 
             <Fragment>
              <button type="button" className="btn btn-light" onClick={e => addLike(_id)}>
                 <i className="fas fa-thumbs-up" /> {' '}
                     <span>{likes.length > 0 && <span>{likes.length}</span>}</span>
                 </button>
-          <Link to={`/posts/${_id}`} className="btn btn-light">
+          <Link to={`/post/${_id}`} className="btn btn-light">
               Discussion{" "}
               {comments.length > 0 && (
                   <span className="comment-count">{comments.length}</span>
@@ -36,9 +37,14 @@ const PostItem = ({addLike, auth, post: {_id, text, name, avatar, user, likes, c
                     </button>
                  )} 
             </Fragment>
+            }
             </div>
         </div>
     )
+}
+
+PostItem.defaultProps = {
+    showActions: true
 }
 
 PostItem.propTypes = {
