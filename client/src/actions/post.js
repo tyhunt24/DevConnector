@@ -1,6 +1,6 @@
 import axios from "axios"
 import {setAlert} from "./alert"
-import {GET_POSTS, GET_POST, POST_ERROR, UPDATE_LIKES, ADD_POST} from "./types"
+import {GET_POSTS, GET_POST, POST_ERROR, UPDATE_LIKES, ADD_POST, ADD_COMMENT, REMOVE_COMMENT} from "./types"
 
 export const getPosts = () => async dispatch => {
     try {
@@ -97,4 +97,27 @@ export const getPost = id => async dispatch => {
     }
 }
 
-//adds a comment=
+//adds a comment
+export const addComment = (id, FormData) => async dispatch =>  {
+    const config = {
+        headers: {
+            "Content-Type": "application/json"
+        }
+    }
+
+    try {
+        const res = await axios.post(`/api/comment/${id}`, FormData, config)
+
+        dispatch({
+            type: ADD_COMMENT,
+            payload: res.data
+        })
+
+        dispatch(setAlert("Comment Added", "success"))
+    } catch (err) {
+        dispatch({
+            type: POST_ERROR,
+            payload: {msg: err.response.statusText, status: err.response.status}
+        }) 
+    }
+}
