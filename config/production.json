@@ -1,0 +1,6 @@
+{
+    "mongoURI": "mongodb+srv://tyhunt23:tyhunt23@devconnector.ww1yi.mongodb.net/<dbname>?retryWrites=true&w=majority",
+    "jwtSecret": "mysecrettoken",
+    "githubClientId": "f4f5dab9ae016489e81e",
+    "githubSecret": "c623d058aee3b7b91cfe5ddd31b0d334bf6822de"
+}
